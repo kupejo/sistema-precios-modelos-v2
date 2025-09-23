@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "name": "sistema-precios-modelos-v2",
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "frontend/$1"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_APP_URL": "@next_public_app_url",
+    "NEXT_PUBLIC_APP_NAME": "@next_public_app_name"
+  },
+  "functions": {
+    "frontend/pages/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "regions": ["iad1"],
+  "framework": "nextjs"
+}
