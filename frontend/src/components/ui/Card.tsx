@@ -13,14 +13,14 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const cardVariants = cva(
-  'rounded-lg border bg-white shadow-sm',
+  'rounded-xl border bg-gray-800/50 text-white backdrop-blur-sm',
   {
     variants: {
       variant: {
-        default: 'border-gray-200',
-        elevated: 'border-gray-200 shadow-lg',
-        outlined: 'border-gray-300 shadow-none',
-        filled: 'border-gray-200 bg-gray-50'
+        default: 'border-gray-600',
+        elevated: 'border-gray-600 shadow-lg',
+        outlined: 'border-gray-500 shadow-none',
+        filled: 'border-gray-600 bg-gray-700/50'
       },
       padding: {
         none: 'p-0',
@@ -90,7 +90,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn('text-sm text-gray-500', className)}
+    className={cn('text-sm text-gray-400', className)}
     {...props}
   />
 ))

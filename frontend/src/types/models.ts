@@ -43,11 +43,12 @@ export const SERVICIOS = [
   'VIDEOCALL 15MIN',
   
   // CUSTOM VIDEOS
-  'CUSTOM VIDEO PERSONALIZADO 5 M',
-  'CUSTOM VIDEO PERSONALIZADO 10 M',
-  'CUSTOM VIDEO PERSONALIZADO 15 M',
+  'CUSTOM VIDEO 5M',
+  'CUSTOM VIDEO 10M',
+  'CUSTOM VIDEO 15M',
   
   // EXTRAS
+  'FOTOS PERSONALIZADAS',
   'FOTOS PERSONALIZADAS 1',
   'FOTOS PERSONALIZADAS 3',
   'BG PERSONALIZADO',
@@ -160,6 +161,24 @@ export interface FormularioModelo {
   extras_videollamadas: ExtraVideollamada[]
   extras_custom: ExtraCustom[]
   extras_generales?: string
+  
+  // Fotos y Extras
+  fotos_personalizadas: boolean
+  bg_personalizado: boolean
+  panties: boolean
+  
+  // Contenido Bóveda
+  sola_vaginal: boolean
+  sola_anal: boolean
+  sola_squirt: boolean
+  bg_boy_girl: boolean
+  bg_boy_girl_anal: boolean
+  lesbian: boolean
+  orgia: boolean
+  bbc: boolean
+  trio_2_chicos_1_chica: boolean
+  lives: boolean
+  estrenos: boolean
   
   // Precios de servicios
   precios: Record<Servicio, number>

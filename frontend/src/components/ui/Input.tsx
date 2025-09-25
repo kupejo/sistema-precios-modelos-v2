@@ -13,14 +13,14 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const inputVariants = cva(
-  'flex w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:cursor-not-allowed disabled:opacity-50',
+  'flex w-full rounded-lg border bg-gray-800 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:border-transparent disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200',
   {
     variants: {
       variant: {
-        default: 'border-gray-300 focus:ring-blue-500',
-        error: 'border-red-500 focus:ring-red-500',
-        success: 'border-green-500 focus:ring-green-500',
-        warning: 'border-yellow-500 focus:ring-yellow-500'
+        default: 'border-gray-600 focus:ring-purple-500 focus:border-purple-500 hover:border-gray-500',
+        error: 'border-red-500 focus:ring-red-500 focus:border-red-500',
+        success: 'border-green-500 focus:ring-green-500 focus:border-green-500',
+        warning: 'border-yellow-500 focus:ring-yellow-500 focus:border-yellow-500'
       },
       size: {
         default: 'h-10 px-3 py-2',
@@ -36,7 +36,7 @@ const inputVariants = cva(
 )
 
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement>,
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
     VariantProps<typeof inputVariants> {
   label?: string
   error?: string
@@ -52,7 +52,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="w-full">
         {label && (
-          <label className="mb-2 block text-sm font-medium text-gray-700">
+          <label className="mb-2 block text-sm font-medium text-gray-300">
             {label}
           </label>
         )}
@@ -78,10 +78,16 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           )}
         </div>
         {error && (
-          <p className="mt-1 text-sm text-red-600">{error}</p>
+          <p className="mt-1 text-sm text-red-400 flex items-center gap-1">
+            <i className="fas fa-exclamation-circle text-xs"></i>
+            {error}
+          </p>
         )}
         {helperText && !error && (
-          <p className="mt-1 text-sm text-gray-500">{helperText}</p>
+          <p className="mt-1 text-sm text-gray-400 flex items-center gap-1">
+            <i className="fas fa-info-circle text-xs"></i>
+            {helperText}
+          </p>
         )}
       </div>
     )

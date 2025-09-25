@@ -7,7 +7,7 @@
  */
 
 import { type ClassValue, clsx } from 'clsx'
-import { SERVICIOS, PRECIOS_SUGERIDOS } from './constants'
+import { PRECIOS_SUGERIDOS } from './constants'
 
 // =====================================================
 // UTILIDADES DE CLASES CSS
